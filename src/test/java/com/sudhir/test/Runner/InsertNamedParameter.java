@@ -24,6 +24,10 @@ public class InsertNamedParameter {
 		namedSplitterDAO.updateSplitter(splitter);
 		System.out.println("List size:::"+namedSplitterDAO.getAllSpliter("test123"));
 		System.out.println("Number of people:::"+namedSplitterDAO.getSplitterCount("test123"));
+		
+		Splitter splitter1=new Splitter("sudhiris063", "password", "test1234");
+		SplitterDAO splitterDAO=(SplitterDAO)applicationContext.getBean("namedParamTemplateSupport");
+		splitterDAO.addSplitter(splitter1);
 	}
 
 }

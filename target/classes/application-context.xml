@@ -25,6 +25,9 @@
 	<bean id="splitterDAO" class="com.sudhir.test.spring.jdbcDAOImpl.SplitterDAOImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
+	<bean id="namedParamTemplateSupport" class="com.sudhir.test.spring.jdbcDAOImpl.NamedParamJdbcDAOSupport">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
 	<bean id="namedParmSplitterDAO" class="com.sudhir.test.spring.jdbcDAOImpl.NamedParmSplitterDAOImpl">
 		<property name="namedParameterJdbcTemplate" ref="namedParameterJdbcTemplate"/>
 	</bean>
@@ -36,6 +39,7 @@
 	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
 		<constructor-arg ref="dataSource"/>
 	</bean>
+	<import resource="classpath*:/META-INF/agency-context.xml"/>
 	<!-- <bean id="pooledDataSource" class="org.apche.commons.dbcp.BasicDataSource"> 
 		<property name="driverClassName" value="${jdbc.driverClassName}"></property> 
 		<property name="url" value="${jdbc.url}"></property> <property name="username" 
